@@ -1,6 +1,10 @@
 <?php 
 
 namespace App\Model;
+require_once './vendor/autoload.php';
+
+
+
 
 use App\Model\GetConection;
 
