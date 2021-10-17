@@ -1,8 +1,7 @@
 <?php 
 
 namespace App\Model;
-require_once './vendor/autoload.php';
-
+require_once '../vendor/autoload.php';
 
 
 
@@ -25,23 +24,8 @@ class Actions {
     public function Find_Global($Data){
 
     }
-    public function Select_FeedBack($order,$search,$feedBack){
-        if(!is_null($order) && ($order === 'ASC' || $order === 'DESC') ){
-            
-                $sql = "SELECT FROM data_users where feedback = '{$feedBack}' ORDER BY name_user '{$order}'";
-                return ;
-            
-            
-        }
-
-        if(!is_null($search)){
-            $sql = "SELECT FROM data_users where feedback = '{$feedBack}' AND ( name_user = '{$search}'
-            or name_employe = '{$search}' or address_user = '{$search}' 
-            or contact_user = '${$search}'  or visit_date = '{$search}')";
-            return;
-        }
-        $sql = "SELECT * FROM data_users where feedback = '{$feedBack}' ";
-    }
+   
 }
 
+print('h3');
 ?>
