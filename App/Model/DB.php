@@ -1,6 +1,6 @@
 <?php 
 namespace App\Model;
-require_once './vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 
 
@@ -13,6 +13,8 @@ class GetConection {
         try
         {
             self::$instance = new \PDO('mysql:host=localhost;dbname=CRM;','root','');
+            
+            return self::$instance;
         }catch(\Error $e)
         {
             throw $e->getMessage();
