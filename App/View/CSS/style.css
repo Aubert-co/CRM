@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container-flex{
+    display: grid;
+    grid-template-areas: "aside   header" 
+                        "aside  main";
+   
+    grid-template-rows: 10vh  90vh ;
+    grid-template-columns: 5% 95%;
+    
+}
+header{
+    grid-area: header;
+    background-color:#cec6c6;
+}
+.flex_nav{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+input , select{
+    outline: none;
+    border: 3px solid rgb(99, 91, 202);
+    border-radius: 10px;
+    text-align: center;
+    
+}
+
+.box_inputs , .box_datasSearch{
+    margin:  0 5% 0  5%;
+}
+main{
+    grid-area: main;
+    background-color:#cec6c6;
+    margin: 5px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.box_itens{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+    margin: 10px;
+   
+}
+.title{
+    margin: 10px;
+    background-color: rgba(231, 227, 227, 0.486);
+}
+.sub_items{
+    overflow-y: scroll;
+    max-height: 450px;
+}
+.item_box{
+    margin: 2%;
+    background-color:	#918d8d;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.hight{
+    background-color: rgb(78, 202, 78);
+}
+.low{
+   background-color: rgb(223, 51, 51);
+}
+.medium{
+    background-color: rgb(177, 121, 19);
+}
+aside{
+    grid-area: aside;
+    background-color: rgb(39, 32, 32);
+   
+}
+.flex_aside{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.flex_aside a{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30%;
+    font-size: x-small;
+    text-decoration: none;
+}
+.item i,a {
+    color: #AAA;
+    cursor: pointer;
+}
+a:hover {
+    color: rgb(99, 91, 202);
+}
+.sub_items::-webkit-scrollbar {
+    width: 10px;             
+  }
+  
+.sub_items::-webkit-scrollbar-track {
+    background: rgb(126, 123, 116);       
+    border-radius: 10px;
+}
+  
+.sub_items::-webkit-scrollbar-thumb {
+    background-color: rgb(167, 167, 170);    
+    border-radius: 20px;      
+
+}
