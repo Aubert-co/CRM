@@ -27,6 +27,12 @@ class FeedBack_Query{
      }
      public function Select_FeedBack_Negative($order,$search){
         $feedBack = 1;
+        
+        $sql = $this->Return_a_SQL($order,$search,$feedBack);
+        $stmt = GetConection::Conection()->prepare($sql);
+
+        $stmt->execute();
+        
      }
 
      public function Select_FeedBack_Medium($order,$search){
