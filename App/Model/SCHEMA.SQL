@@ -9,6 +9,6 @@ create table data_users(
 );
 
 INSERT INTO data_users(name_user,name_employe,address_user,contact_user,feedback,visit_date)
-VALUES('jose','mathues','retiro',1231324,1,20180710);
+VALUES('souza','julia','roma',1231324,2,20200710);
 
 SELECT * FROM data_users where visit_date BETWEEN "2017-08-10"  AND "2022-01-10" 
