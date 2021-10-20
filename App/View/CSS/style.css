@@ -66,10 +66,10 @@ main{
     flex-direction: column;
     text-align: start;
 }
-.hight{
+.positive{
     background-color: rgb(78, 202, 78);
 }
-.low{
+.negative{
    background-color: rgb(223, 51, 51);
 }
 .medium{
