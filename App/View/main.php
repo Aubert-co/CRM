@@ -19,5 +19,13 @@ $values = new ActionsController;
         <div class="box_itens">
             <?php $Negative = $values->FeedBack_Layout_Negative(null,null); ?>
         </div>
+
+        <div class="box_itens">
+            <?php $All_Datas = $values->All_Datas(null,null) ?>
+        </div>
+
+        <div class="box_itens">
+            <?php $All_Datas = $values->All_Datas(null,null) ?>
+        </div>
     </div>
 </main>
