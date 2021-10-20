@@ -7,43 +7,26 @@ use App\Model\GetConection;
 
 
 class FeedBack_Query{
-    public function Select_FeedBack_Positivo($order,$search){
-        $feedBack = 1;
-        $sql =  $this->Return_a_SQL($order,$search,$feedBack);
-        
-        $stmt = GetConection::Conection()->prepare($sql);
- 
-        $stmt->execute();
- 
-        if($stmt->rowCount()>0){
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            
-            return $result;
-        }
-   
-     
-     }
-     public function Select_FeedBack_Negative($order,$search){
-        $feedBack = 1;
-        
-        $sql =  $this->Return_a_SQL($order,$search,$feedBack);
-         
-        $stmt = GetConection::Conection()->prepare($sql);
- 
-        $stmt->execute();
- 
-        if($stmt->rowCount()>0){
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-            
-            return $result;
-        }
-        
-     }
+    
 
-     public function Select_FeedBack_Medium($order,$search){
-        
-         $feedBack = 1;
-         $sql =  $this->Return_a_SQL($order,$search,$feedBack);
+ 
+     public function Return_a_SQL($order,$search,$feedBack){
+         /*$sql = "SELECT FROM data_user WHERE feedback = '{feedback}'
+         and visit date beetwen '{$dateone} and '{datetwo}''"
+         */
+        if(is_null($order) ){
+            $order = "ASC";
+         }
+ 
+         if(!is_null($search) ){
+             $sql = "SELECT * FROM data_users where feedback = '{$feedBack}' AND ( name_user = '{$search}'
+             or name_employe = '{$search}' or address_user = '{$search}' 
+             or contact_user = '${$search}'  or visit_date = '{$search}') ORDER BY name_user {$order}";
+           
+         }else{
+            $sql = "SELECT * FROM data_users where feedback = '{$feedBack}' ORDER BY name_user {$order}";
+         }
+         
          
          $stmt = GetConection::Conection()->prepare($sql);
   
@@ -54,22 +37,23 @@ class FeedBack_Query{
              
              return $result;
          }
+         
      }
+     public function All_Datas($order,$search){
+         if(is_null($order)){
+             $order = "ASC";
+         }
+         $sql = "SELECT * FROM data_users  ORDER BY visit_date {$order}";
 
- 
-     private function Return_a_SQL($order,$search,$feedBack){
-         if(!is_null($order) && ($order === 'ASC' || $order === 'DESC') ){
-             $sql = "SELECT FROM data_users where feedback = '{$feedBack}' ORDER BY name_user '{$order}'";
-             return $sql;
+         $stmt = GetConection::Conection()->prepare($sql);
+  
+         $stmt->execute();
+  
+         if($stmt->rowCount()>0){
+             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+             
+             return $result;
          }
- 
-         if(!is_null($search)){
-             $sql = "SELECT FROM data_users where feedback = '{$feedBack}' AND ( name_user = '{$search}'
-             or name_employe = '{$search}' or address_user = '{$search}' 
-             or contact_user = '${$search}'  or visit_date = '{$search}')";
-             return $sql;
-         }
-         return $sql = "SELECT * FROM data_users where feedback = '{$feedBack}' ";
      }
 }
 /*function FeedBack_Layout_Medium($order,$search,$feedback){
